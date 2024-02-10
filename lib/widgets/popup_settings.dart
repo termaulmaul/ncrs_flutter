@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_libserialport/flutter_libserialport.dart';
 
 class PopupSettings extends StatefulWidget {
   const PopupSettings({Key? key}) : super(key: key);
@@ -11,6 +12,7 @@ class PopupSettings extends StatefulWidget {
 class _PopupSettingsState extends State<PopupSettings> {
   String selectedComport = 'COM1';
   String selectedType = 'NIM';
+  List<String> availablePorts = [];
 
   TextEditingController nameController = TextEditingController();
   TextEditingController botController = TextEditingController();
@@ -33,6 +35,19 @@ class _PopupSettingsState extends State<PopupSettings> {
       idChatbotController.text = prefs.getString('idChatbot') ?? '';
       hospitalNameController.text = prefs.getString('hospitalName') ?? '';
     });
+
+    await _getAvailablePorts();
+  }
+
+  Future<void> _getAvailablePorts() async {
+    try {
+      final ports = await SerialPort.availablePorts;
+      setState(() {
+        availablePorts = ports;
+      });
+    } catch (e) {
+      print('Error getting available ports: $e');
+    }
   }
 
   Future<void> saveSettings() async {
@@ -142,7 +157,7 @@ class _PopupSettingsState extends State<PopupSettings> {
   }
 
   List<DropdownMenuItem<String>> getComportList() {
-    return ['COM1', 'COM2', 'COM3']
+    return availablePorts
         .map((String value) {
           return DropdownMenuItem<String>(
             value: value,
