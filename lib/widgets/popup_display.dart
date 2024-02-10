@@ -9,16 +9,16 @@ class DisplayPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Display'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Image.asset(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: Image.asset(
               'lib/assets/denah.png', // Ganti dengan path yang sesuai
               fit: BoxFit.contain,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
