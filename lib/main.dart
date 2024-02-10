@@ -39,10 +39,10 @@ class Dashboard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Nurse Call Data
-          Expanded(
+          const Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: const NurseCallDataTable(),
+              padding: EdgeInsets.all(16),
+              child: NurseCallDataTable(),
             ),
           ),
           // Logo and Buttons
@@ -227,13 +227,13 @@ class Dashboard extends StatelessWidget {
           Container(
             width: 16,
             height: 16,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.red,
             ),
           ),
           const SizedBox(width: 8),
-          Text(label, style: TextStyle(color: Colors.white)),
+          Text(label, style: const TextStyle(color: Colors.white)),
         ],
       ),
     );

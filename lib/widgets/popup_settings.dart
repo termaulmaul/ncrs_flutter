@@ -40,7 +40,7 @@ class _PopupSettingsState extends State<PopupSettings> {
 
   Future<void> _getAvailablePorts() async {
     try {
-      final portList = await SerialPort.availablePorts;
+      final portList = SerialPort.availablePorts;
       final ports = availablePorts.map((port) => port).toList();
       setState(() {
         availablePorts = ports;
