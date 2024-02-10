@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hospital_management/widgets/nurse_call_data_table.dart';
 import 'package:hospital_management/widgets/popup_settings.dart';
 import 'package:hospital_management/widgets/popup_masterdata.dart';
+import 'package:hospital_management/widgets/popup_display.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,14 +39,12 @@ class Dashboard extends StatelessWidget {
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Nurse Call Data
           const Expanded(
             child: Padding(
               padding: EdgeInsets.all(16),
               child: NurseCallDataTable(),
             ),
           ),
-          // Logo and Buttons
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -104,7 +103,7 @@ class Dashboard extends StatelessWidget {
                     const SizedBox(height: 16),
                     ElevatedButton(
                       onPressed: () {
-                        // Implement Data Respon System functionality
+                        _showDisplayPopup(context);
                       },
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
@@ -181,7 +180,6 @@ class Dashboard extends StatelessWidget {
           ),
         ],
       ),
-      // BottomNavigationBar untuk footer
       bottomNavigationBar: BottomAppBar(
         color: Colors.teal,
         child: Container(
@@ -218,7 +216,15 @@ class Dashboard extends StatelessWidget {
     );
   }
 
-  // Fungsi untuk membangun indikator footer
+  void _showDisplayPopup(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return const PopupDisplay();
+      },
+    );
+  }
+
   Widget _buildFooterIndicator(String label) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
