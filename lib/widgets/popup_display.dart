@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class PopupDisplay extends StatelessWidget {
-  const PopupDisplay({Key? key}) : super(key: key);
+class DisplayPage extends StatelessWidget {
+  const DisplayPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: const Text('Display'),
-      content: SingleChildScrollView(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Display'),
+      ),
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -18,14 +20,6 @@ class PopupDisplay extends StatelessWidget {
           ],
         ),
       ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          child: const Text('Kembali'),
-        ),
-      ],
     );
   }
 }

@@ -216,14 +216,13 @@ class Dashboard extends StatelessWidget {
     );
   }
 
-  void _showDisplayPopup(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return const PopupDisplay();
-      },
-    );
-  }
+void _showDisplayPopup(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const DisplayPage()),
+  );
+}
+
 
   Widget _buildFooterIndicator(String label) {
     return Padding(
