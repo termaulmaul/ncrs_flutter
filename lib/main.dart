@@ -180,21 +180,30 @@ class Dashboard extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.teal,
-        child: Container(
-          height: 50.0,
-          alignment: Alignment.center,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              _buildFooterIndicator('Sound'),
-              _buildFooterIndicator('Standby'),
-              _buildFooterIndicator('Master'),
-            ],
+bottomNavigationBar: BottomAppBar(
+  color: Colors.teal,
+  child: Container(
+    height: 50.0,
+    alignment: Alignment.center,
+    child: Row(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 16.0),
+          child: Image.asset(
+            'lib/assets/eula_logo.png', // Sesuaikan dengan path yang sesuai
+            width: 30,
+            height: 30,
           ),
         ),
-      ),
+        const Spacer(), // Spacer untuk menjaga jarak antara logo dan indikator footer
+        _buildFooterIndicator('Sound'),
+        _buildFooterIndicator('Standby'),
+        _buildFooterIndicator('Master'),
+      ],
+    ),
+  ),
+),
+
     );
   }
 
