@@ -191,8 +191,8 @@ bottomNavigationBar: BottomAppBar(
           padding: const EdgeInsets.only(left: 16.0),
           child: Image.asset(
             'lib/assets/eula_logo.png', // Sesuaikan dengan path yang sesuai
-            width: 30,
-            height: 30,
+            width: 150,
+            height: 150,
           ),
         ),
         const Spacer(), // Spacer untuk menjaga jarak antara logo dan indikator footer
