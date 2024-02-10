@@ -23,6 +23,7 @@ class _PopupSettingsState extends State<PopupSettings> {
   void initState() {
     super.initState();
     loadSettings();
+    _getAvailablePorts();
   }
 
   Future<void> loadSettings() async {
@@ -35,13 +36,12 @@ class _PopupSettingsState extends State<PopupSettings> {
       idChatbotController.text = prefs.getString('idChatbot') ?? '';
       hospitalNameController.text = prefs.getString('hospitalName') ?? '';
     });
-
-    await _getAvailablePorts();
   }
 
   Future<void> _getAvailablePorts() async {
     try {
-      final ports = await SerialPort.availablePorts;
+      final portList = await SerialPort.availablePorts;
+      final ports = availablePorts.map((port) => port).toList();
       setState(() {
         availablePorts = ports;
       });
