@@ -3,6 +3,7 @@ import 'package:hospital_management/widgets/nurse_call_data_table.dart';
 import 'package:hospital_management/widgets/popup_settings.dart';
 import 'package:hospital_management/widgets/popup_masterdata.dart';
 import 'package:hospital_management/widgets/popup_display.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -165,45 +166,44 @@ class Dashboard extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'lib/assets/ams_logo.png',
-                      width: 150,
-                      height: 150,
-                    ),
-                  ],
+                child: GestureDetector(
+                  onTap: () {
+                    launch('https://www.ams-indo.com');
+                  },
+                  child: Image.asset(
+                    'lib/assets/ams_logo.png',
+                    width: 100,
+                    height: 100,
+                  ),
                 ),
               ),
             ],
           ),
         ],
       ),
-bottomNavigationBar: BottomAppBar(
-  color: Colors.teal,
-  child: Container(
-    height: 50.0,
-    alignment: Alignment.center,
-    child: Row(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 16.0),
-          child: Image.asset(
-            'lib/assets/eula_logo.png', // Sesuaikan dengan path yang sesuai
-            width: 150,
-            height: 150,
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.teal,
+        child: Container(
+          height: 50.0,
+          alignment: Alignment.center,
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: Image.asset(
+                  'lib/assets/eula_logo.png', // Sesuaikan dengan path yang sesuai
+                  width: 150,
+                  height: 150,
+                ),
+              ),
+              const Spacer(),
+              _buildFooterIndicator('Sound'),
+              _buildFooterIndicator('Standby'),
+              _buildFooterIndicator('Master'),
+            ],
           ),
         ),
-        const Spacer(), // Spacer untuk menjaga jarak antara logo dan indikator footer
-        _buildFooterIndicator('Sound'),
-        _buildFooterIndicator('Standby'),
-        _buildFooterIndicator('Master'),
-      ],
-    ),
-  ),
-),
-
+      ),
     );
   }
 
@@ -225,13 +225,12 @@ bottomNavigationBar: BottomAppBar(
     );
   }
 
-void _showDisplayPopup(BuildContext context) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const DisplayPage()),
-  );
-}
-
+  void _showDisplayPopup(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const DisplayPage()),
+    );
+  }
 
   Widget _buildFooterIndicator(String label) {
     return Padding(
