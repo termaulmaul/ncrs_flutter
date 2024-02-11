@@ -18,6 +18,19 @@ class DisplayPage extends StatelessWidget {
               fit: BoxFit.contain,
             ),
           ),
+          Container(
+            color: Colors.teal, // Sesuaikan dengan warna yang diinginkan
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text(
+                  'Footer Content',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
