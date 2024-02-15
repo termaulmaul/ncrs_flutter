@@ -21,9 +21,9 @@ class DisplayPage extends StatelessWidget {
           Container(
             color: Colors.teal, // Sesuaikan dengan warna yang diinginkan
             padding: const EdgeInsets.all(16.0),
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
                   'Footer Content',
                   style: TextStyle(color: Colors.white),
