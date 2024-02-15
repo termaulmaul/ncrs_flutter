@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'popup_addindicator.dart'; // Import file popup_addindicator.dart
 
 class DisplayPage extends StatelessWidget {
   const DisplayPage({Key? key}) : super(key: key);
@@ -26,6 +27,7 @@ class DisplayPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     // Handle Add Indicator button press
+                    _showAddIndicatorPopup(context);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.white,
@@ -33,33 +35,20 @@ class DisplayPage extends StatelessWidget {
                   ),
                   child: const Text('Add Indicator'),
                 ),
-                const SizedBox(width: 8.0), // Adjust the width as needed
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle Delete Indicator button press
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    onPrimary: Colors.teal,
-                  ),
-                  child: const Text('Delete Indicator'),
-                ),
-                const SizedBox(width: 8.0), // Adjust the width as needed
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle Save Indicator button press
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    onPrimary: Colors.teal,
-                  ),
-                  child: const Text('Save Indicator'),
-                ),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  void _showAddIndicatorPopup(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AddIndicatorPopup();
+      },
     );
   }
 }
