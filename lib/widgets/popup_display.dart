@@ -20,13 +20,40 @@ class DisplayPage extends StatelessWidget {
           ),
           Container(
             color: Colors.teal, // Sesuaikan dengan warna yang diinginkan
-            padding: const EdgeInsets.all(16.0),
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: Row(
               children: [
-                Text(
-                  'Footer Content',
-                  style: TextStyle(color: Colors.white),
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle Add Indicator button press
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    onPrimary: Colors.teal,
+                  ),
+                  child: const Text('Add Indicator'),
+                ),
+                const SizedBox(width: 8.0), // Adjust the width as needed
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle Delete Indicator button press
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    onPrimary: Colors.teal,
+                  ),
+                  child: const Text('Delete Indicator'),
+                ),
+                const SizedBox(width: 8.0), // Adjust the width as needed
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle Save Indicator button press
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    onPrimary: Colors.teal,
+                  ),
+                  child: const Text('Save Indicator'),
                 ),
               ],
             ),
