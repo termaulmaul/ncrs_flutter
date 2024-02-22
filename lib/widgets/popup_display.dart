@@ -30,8 +30,7 @@ class DisplayPage extends StatelessWidget {
                     _showAddIndicatorPopup(context);
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    onPrimary: Colors.teal,
+                    foregroundColor: Colors.teal, backgroundColor: Colors.white,
                   ),
                   child: const Text('Add Indicator'),
                 ),
@@ -47,7 +46,7 @@ class DisplayPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AddIndicatorPopup();
+        return const AddIndicatorPopup();
       },
     );
   }
